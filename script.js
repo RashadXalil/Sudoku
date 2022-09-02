@@ -10,19 +10,12 @@ let box = ''
 let num = 1
 let valueSpan = ''
 let condidateSpan = ''
-// Userdən hansı box'a value yazılacaq onu almalıyam
-//Userdən hansı modda data gələcək ona baxmalıyam (normalvalue,candidateMode)
-//gələn dəyərlərə uyğun dataları boxlara set etməliyəm
-//
-//getMode ()=> return mode;
-//getValue () => return value
-//setData (box,mode,value) => if(mode==1)box.innerHTML = value else()=>box.conditials.INNERHTML=value
 for (let i = 0; i < valueBoxes.length; i++) {
   valueBoxes[i].addEventListener('click', function (e) {
     box = this
     condidateSpan = box.firstElementChild
     valueSpan = box.lastElementChild
-    console.log(valueSpan, condidateSpan)
+    box.style.background = 'yellow'
     return box
   })
 }
@@ -31,7 +24,7 @@ function getValue() {
     keyboardKeys[i].addEventListener('click', function (e) {
       num = Number.parseInt(e.target.innerHTML)
       setValue()
-
+      box.style.background = 'white'
       return num
     })
   }
@@ -41,10 +34,8 @@ function getMode() {
   modeSwitch.addEventListener('change', function () {
     if (modeSwitch.checked == false) {
       mode = 1
-      console.log('normal-mode', mode)
     } else {
       mode = 2
-      console.log('con-mode', mode)
     }
   })
 }
@@ -52,7 +43,6 @@ getMode()
 function setValue() {
   if (mode == 1) {
     valueSpan.innerHTML = num
-    console.log(box, num)
   } else {
     if (condidateSpan.innerHTML.includes(num)) {
       let string = condidateSpan.innerHTML
