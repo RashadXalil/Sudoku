@@ -15,7 +15,7 @@ for (let i = 0; i < valueBoxes.length; i++) {
     box = this
     condidateSpan = box.firstElementChild
     valueSpan = box.lastElementChild
-    box.style.background = 'yellow'
+    box.classList.add('selected')
     return box
   })
 }
@@ -24,7 +24,7 @@ function getValue() {
     keyboardKeys[i].addEventListener('click', function (e) {
       num = Number.parseInt(e.target.innerHTML)
       setValue()
-      box.style.background = 'white'
+      box.classList.remove('selected')
       return num
     })
   }
